@@ -667,9 +667,9 @@
                         .eq('phone', identifier)
                         .single();
 
-                    if (phoneError || !phoneData) {
+if (phoneError || !phoneData) {
                         btn.innerText = originalText;
-                        showNotification('حساب غير موجود', 'رقم الهاتف المدخل غير مسجل لدينا.', 'error');
+                        showNotification('حساب غير موجود', phoneError ? phoneError.message : 'الرقم مش موجود في الجدول', 'error');
                         return;
                     }
                     // سحب الإيميل من الداتا بيز علشان نسجل دخول بيه مخفياً
@@ -684,8 +684,9 @@
 
                 btn.innerText = originalText;
 
-                if (error) {
-                    showNotification('فشل تسجيل الدخول', 'البيانات المدخلة غير صحيحة، تأكد من الإيميل/رقم الهاتف وكلمة المرور.', 'error');
+if (error) {
+                    // هنا خلينا الموقع يعرض رسالة الإيرور الأصلية اللي جاية من سوبا بيز
+                    showNotification('فشل تسجيل الدخول', error.message, 'error');
                 } else {
                     showNotification('أهلاً بعودتك', 'تم تسجيل الدخول بنجاح!', 'success');
                     loginForm.reset();
