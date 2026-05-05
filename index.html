@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brainex Academy | University Math Platform</title>
+    <title>Brainex | University Math Platform</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,10 +102,20 @@
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
+
+        .part-card {
+            transition: all 0.3s ease;
+        }
+        .part-card:hover {
+            background-color: rgba(79, 70, 229, 0.1);
+            border-color: rgba(79, 70, 229, 0.4);
+            transform: translateX(-5px);
+        }
     </style>
 </head>
 <body class="antialiased relative selection:bg-blue-500/30">
 
+    <!-- Intro Page -->
     <div id="intro-page" class="fixed inset-0 z-[100] bg-[#0a0f1d] flex items-center justify-center overflow-hidden transition-all duration-1000 ease-in-out">
         <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] animate-pulse"></div>
         <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[100px] animate-pulse delay-700"></div>
@@ -117,20 +127,20 @@
         <div class="absolute top-1/2 left-10 text-cyan-500/20 text-6xl font-serif animate-float-delay-1 select-none pointer-events-none">∑</div>
 
         <div class="container mx-auto px-6 relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-16 w-full max-w-7xl">
-            <div class="md:w-1/2 text-center md:text-right font-arabic" dir="rtl">
+            <div class="md:w-1/2 text-center md:text-left">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight animate-on-scroll is-visible">
-                    مرحباً بك في <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-l from-cyan-400 via-blue-500 to-indigo-600 font-heading text-5xl md:text-6xl lg:text-7xl mt-2 inline-block" dir="ltr">Brainex Academy</span>
+                    Welcome to <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 font-heading text-5xl md:text-6xl lg:text-7xl mt-2 inline-block">Brainex</span>
                 </h1>
                 <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed animate-on-scroll is-visible delay-100 max-w-lg mx-auto md:mx-0">
-                    الرياضيات هنا ليست مجرد أرقام وقوانين معقدة. 
-                    <span class="text-blue-400 font-bold">دراستك ومستقبلك معنا في أمان تام.</span> 
-                    اكتشف متعة التعلم الأكاديمي بأحدث الطرق التفاعلية والمنظمة خصيصاً لطلاب المرحلة الجامعية.
+                    Mathematics here is not just complex numbers and rules. 
+                    <span class="text-blue-400 font-bold">Your studies and future are safe with us.</span> 
+                    Discover the joy of academic learning with the latest interactive methods, organized specifically for university students.
                 </p>
                 <div class="animate-on-scroll is-visible delay-200">
                     <button onclick="enterSite()" class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full hover:from-blue-500 hover:to-indigo-500 shadow-[0_0_30px_rgba(79,70,229,0.4)] hover:shadow-[0_0_50px_rgba(79,70,229,0.7)] hover:-translate-y-1">
-                        <span>ابدأ رحلتك الآن</span>
-                        <i data-lucide="arrow-left" class="w-5 h-5 mr-3 transform group-hover:-translate-x-2 transition-transform"></i>
+                        <span>Start Your Journey</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform"></i>
                     </button>
                 </div>
             </div>
@@ -143,17 +153,19 @@
         </div>
     </div>
 
+    <!-- Main App Container -->
     <div id="main-app-container" class="hidden opacity-0 transition-opacity duration-1000 ease-in-out">
         <div class="bg-glow"></div>
 
+        <!-- Navbar -->
         <nav class="relative z-50 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
             <div class="flex items-center gap-3 cursor-pointer" onclick="switchPage('main-content')">
                 <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 p-[2px] shadow-[0_0_15px_rgba(251,191,36,0.3)]">
                     <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center relative overflow-hidden">
-                        <img src="https://i.postimg.cc/0NwbJmLT/photo-6039562129964207721-y.jpg" alt="Brainex Academy" class="w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/0NwbJmLT/photo-6039562129964207721-y.jpg" alt="Brainex" class="w-full h-full object-cover">
                     </div>
                 </div>
-                <span class="font-heading font-bold text-xl tracking-tight">Brainex Academy</span>
+                <span class="font-heading font-bold text-xl tracking-tight">Brainex</span>
             </div>
 
             <div class="hidden md:flex items-center gap-8" id="nav-auth-group">
@@ -169,7 +181,7 @@
 
                 <button id="user-profile" class="hidden items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all transform hover:-translate-y-1" onclick="switchPage('dashboard-page')">
                     <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
-                    To Dashboard
+                    Dashboard
                 </button>
             </div>
 
@@ -180,6 +192,7 @@
             </div>
         </nav>
 
+        <!-- Mobile Menu -->
         <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
         <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-card border-l border-slate-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col">
             <div class="p-6 flex justify-end">
@@ -197,6 +210,7 @@
             </div>
         </div>
 
+        <!-- Main Content Page -->
         <main id="main-content" class="page-section hidden opacity-0 translate-y-10 transition-all duration-500 ease-out relative z-10">
             <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-32 text-center animate-on-scroll">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-950/50 border border-indigo-500/20 mb-8 backdrop-blur-sm">
@@ -209,7 +223,7 @@
                 </h1>
 
                 <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Expert-led courses designed for university students. Deepen your understanding of complex theories and excel in your academic journey with Brainex Academy.
+                    Expert-led courses designed for university students. Deepen your understanding of complex theories and excel in your academic journey with Brainex.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -230,7 +244,7 @@
                         <i data-lucide="rocket" class="w-6 h-6 text-blue-400"></i>
                         <div>
                             <div class="font-heading font-bold text-3xl text-white mb-1">10k+</div>
-                            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">ACTIVE UNIVERSITY STUDENTS</div>
+                            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">ACTIVE STUDENTS</div>
                         </div>
                     </div>
                     <div class="flex flex-col items-center justify-center gap-3">
@@ -282,19 +296,27 @@
                 </div>
             </section>
             
+            <!-- Footer -->
             <footer class="border-t border-slate-800 bg-[#0A0F1C] pt-16 pb-8 mt-12 relative z-10 animate-on-scroll">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-12">
                         <div class="max-w-sm">
                             <div class="flex items-center gap-3 mb-4">
                                 <div class="w-8 h-8 rounded-full overflow-hidden bg-slate-900 border border-slate-700">
-                                    <img src="https://i.postimg.cc/0NwbJmLT/photo-6039562129964207721-y.jpg" alt="Brainex Academy" class="w-full h-full object-cover">
+                                    <img src="https://i.postimg.cc/0NwbJmLT/photo-6039562129964207721-y.jpg" alt="Brainex" class="w-full h-full object-cover">
                                 </div>
-                                <h3 class="font-heading font-bold text-2xl text-white">Brainex Academy</h3>
+                                <h3 class="font-heading font-bold text-2xl text-white">Brainex</h3>
                             </div>
                             <p class="text-slate-400 text-sm leading-relaxed mb-6">
                                 Empowering students through mathematics. Master complex concepts with ease.
                             </p>
+                            <!-- Social Media Icons -->
+                            <div class="flex items-center gap-4">
+                                <a href="#" class="text-slate-400 hover:text-blue-500 transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                                <a href="#" class="text-slate-400 hover:text-red-500 transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                                <a href="#" class="text-slate-400 hover:text-red-600 transition-colors"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                                <a href="#" class="text-slate-400 hover:text-purple-500 transition-colors p-1 bg-slate-800 rounded-md"><i data-lucide="tv" class="w-4 h-4"></i></a>
+                            </div>
                         </div>
                         <div class="text-left md:text-right">
                             <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">DEVELOPED BY</div>
@@ -303,31 +325,34 @@
                         </div>
                     </div>
                     <div class="text-center pt-8 border-t border-slate-800/50">
-                        <p class="text-slate-500 text-sm">&copy; 2026 Brainex Academy. All rights reserved.</p>
+                        <p class="text-slate-500 text-sm">&copy; 2026 Brainex. All rights reserved.</p>
                     </div>
                 </div>
             </footer>
         </main>
 
+        <!-- All Courses Page -->
         <div id="all-courses-page" class="page-section hidden opacity-0 translate-y-10 transition-all duration-500 ease-out relative z-10 min-h-[80vh] px-4 py-12">
             <div class="max-w-7xl mx-auto">
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 animate-on-scroll">
                     <div class="max-w-2xl">
                         <h2 class="font-heading font-bold text-4xl text-white mb-4">Our Premium Courses</h2>
-                        <p class="text-slate-400 text-lg font-arabic">اكتشف مجموعتنا المختارة من الكورسات وابدأ رحلتك الأكاديمية بنجاح.</p>
+                        <p class="text-slate-400 text-lg font-arabic" dir="rtl">اكتشف مجموعتنا المختارة من الكورسات وابدأ رحلتك الأكاديمية بنجاح.</p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Course 1: Calculus 131 -->
                     <div class="card bg-card border border-slate-800 rounded-3xl overflow-hidden flex flex-col card-hover animate-on-scroll delay-100">
                         <div class="relative h-48 w-full bg-slate-800 overflow-hidden group">
-                            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=800&auto=format&fit=crop" alt="Advanced Calculus" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
+                            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=800&auto=format&fit=crop" alt="Calculus" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent"></div>
                             <div class="absolute top-4 left-4 w-8 h-8 rounded-lg bg-[#0a0f1d]/80 backdrop-blur border border-slate-700 flex items-center justify-center">
                                 <svg viewBox="0 0 24 24" class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                             </div>
                             <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wider uppercase shadow-lg">
-                                UNIVERSITY LEVEL
+                                REVISION
                             </div>
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
@@ -335,65 +360,33 @@
                                 <div class="flex text-yellow-500">
                                     <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
                                 </div>
-                                <span class="text-xs text-slate-400 ml-1 font-medium">(4.9)</span>
+                                <span class="text-xs text-slate-400 ml-1 font-medium">(5.0)</span>
                             </div>
-                            <h3 class="font-heading font-bold text-2xl text-white mb-3">Advanced Calculus & Analysis</h3>
+                            <h3 class="font-heading font-bold text-2xl text-white mb-3">Final Revision Calculus 131</h3>
                             <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
-                                Master the fundamental concepts of derivatives, rates of change, limit theory, and their applications in real-world advanced physics.
+                                Comprehensive revision course covering all major Calculus 131 topics to ensure you are fully prepared for your final exams.
                             </p>
                             <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-800">
                                 <div class="font-heading font-bold text-2xl text-green-400 flex items-baseline gap-1">
                                     Free
                                 </div>
-                                <button onclick="switchPage('course-details-page')" class="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-5 py-2.5 rounded-full flex items-center gap-1 transition-colors">
+                                <button onclick="viewCourse(1)" class="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-5 py-2.5 rounded-full flex items-center gap-1 transition-colors">
                                     Enter <i data-lucide="chevron-right" class="w-4 h-4"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Course 2: Integration 132 Revision -->
                     <div class="card bg-card border border-slate-800 rounded-3xl overflow-hidden flex flex-col card-hover animate-on-scroll delay-200">
                         <div class="relative h-48 w-full bg-slate-800 overflow-hidden group">
-                            <img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?q=80&w=800&auto=format&fit=crop" alt="Multivariable Calculus" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 grayscale mix-blend-luminosity">
+                            <img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?q=80&w=800&auto=format&fit=crop" alt="Integration Revision" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 grayscale mix-blend-luminosity">
                             <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent"></div>
                             <div class="absolute top-4 left-4 w-8 h-8 rounded-lg bg-[#0a0f1d]/80 backdrop-blur border border-slate-700 flex items-center justify-center">
                                 <svg viewBox="0 0 24 24" class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m12 8-4 4 4 4M16 12H9"/></svg>
                             </div>
                             <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wider uppercase shadow-lg">
-                                UNIVERSITY LEVEL
-                            </div>
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <div class="flex items-center gap-1 mb-3">
-                                <div class="flex text-yellow-500">
-                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
-                                </div>
-                                <span class="text-xs text-slate-400 ml-1 font-medium">(4.8)</span>
-                            </div>
-                            <h3 class="font-heading font-bold text-2xl text-white mb-3">Multivariable Calculus</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
-                                Deep dive into multiple integrals, surface areas, volume calculations, and vector fields. Essential for advanced engineering and physics.
-                            </p>
-                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-800">
-                                <div class="font-heading font-bold text-2xl text-green-400 flex items-baseline gap-1">
-                                    Free
-                                </div>
-                                <button onclick="switchPage('course-details-page')" class="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-5 py-2.5 rounded-full flex items-center gap-1 transition-colors">
-                                    Enter <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card bg-card border border-slate-800 rounded-3xl overflow-hidden flex flex-col card-hover animate-on-scroll delay-300">
-                        <div class="relative h-48 w-full bg-slate-800 overflow-hidden group">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="Linear Algebra" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 hue-rotate-[160deg] saturate-50">
-                            <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent"></div>
-                            <div class="absolute top-4 left-4 w-8 h-8 rounded-lg bg-[#0a0f1d]/80 backdrop-blur border border-slate-700 flex items-center justify-center">
-                                <i data-lucide="trending-up" class="w-4 h-4 text-green-400"></i>
-                            </div>
-                            <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wider uppercase shadow-lg">
-                                UNIVERSITY LEVEL
+                                REVISION
                             </div>
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
@@ -403,58 +396,86 @@
                                 </div>
                                 <span class="text-xs text-slate-400 ml-1 font-medium">(4.9)</span>
                             </div>
-                            <h3 class="font-heading font-bold text-2xl text-white mb-3">Linear Algebra & Vector Spaces</h3>
+                            <h3 class="font-heading font-bold text-2xl text-white mb-3">Final Revision Integration 132</h3>
                             <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
-                                Explore vector spaces, matrices, linear transformations, eigenvalues, and eigenvectors. Fundamental for computer science and data analysis.
+                                Targeted revision for Integration 132, summarizing key formulas and solving typical exam questions.
                             </p>
                             <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-800">
                                 <div class="font-heading font-bold text-2xl text-green-400 flex items-baseline gap-1">
                                     Free
                                 </div>
-                                <button onclick="switchPage('course-details-page')" class="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-5 py-2.5 rounded-full flex items-center gap-1 transition-colors">
+                                <button onclick="viewCourse(2)" class="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-5 py-2.5 rounded-full flex items-center gap-1 transition-colors">
                                     Enter <i data-lucide="chevron-right" class="w-4 h-4"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Course 3: Integration 132 Detailed -->
+                    <div class="card bg-card border border-slate-800 rounded-3xl overflow-hidden flex flex-col card-hover animate-on-scroll delay-300">
+                        <div class="relative h-48 w-full bg-slate-800 overflow-hidden group">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="Integration Detailed" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 hue-rotate-[160deg] saturate-50">
+                            <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent"></div>
+                            <div class="absolute top-4 left-4 w-8 h-8 rounded-lg bg-[#0a0f1d]/80 backdrop-blur border border-slate-700 flex items-center justify-center">
+                                <i data-lucide="trending-up" class="w-4 h-4 text-green-400"></i>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wider uppercase shadow-lg">
+                                DETAILED
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex items-center gap-1 mb-3">
+                                <div class="flex text-yellow-500">
+                                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                </div>
+                                <span class="text-xs text-slate-400 ml-1 font-medium">(5.0)</span>
+                            </div>
+                            <h3 class="font-heading font-bold text-2xl text-white mb-3">Integration 132 (Detailed)</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+                                A complete, detailed explanation of the Integration 132 curriculum from A to Z, perfect for deep understanding.
+                            </p>
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-800">
+                                <div class="font-heading font-bold text-2xl text-green-400 flex items-baseline gap-1">
+                                    Free
+                                </div>
+                                <button onclick="viewCourse(3)" class="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-5 py-2.5 rounded-full flex items-center gap-1 transition-colors">
+                                    Enter <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
 
+        <!-- Course Details & Player Page -->
         <div id="course-details-page" class="page-section hidden opacity-0 translate-y-10 transition-all duration-500 ease-out relative z-10 min-h-[80vh] px-4 py-12" dir="rtl">
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-card border border-slate-800 p-8 rounded-3xl shadow-2xl animate-on-scroll">
-                    <div class="aspect-video bg-slate-800 rounded-2xl mb-8 overflow-hidden relative group">
-                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-all duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent"></div>
-                    </div>
-                    <h2 class="text-3xl font-bold text-white mb-4 font-heading" dir="ltr">Advanced Calculus & Analysis</h2>
-                    <div class="flex items-center gap-4 mb-6">
-                        <span class="bg-green-500/20 text-green-400 border border-green-500/30 px-4 py-1.5 rounded-full text-sm font-bold tracking-wider uppercase">Free</span>
-                        <span class="text-slate-400 text-sm flex items-center gap-1"><i data-lucide="users" class="w-4 h-4"></i> +1200 طالب مسجل</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2 font-arabic border-b border-slate-800 pb-2">عن هذا الكورس:</h3>
-                    <p class="text-slate-300 leading-relaxed mb-8 font-arabic text-lg">
-                        هذا الكورس يغطي جميع أساسيات ومفاهيم التفاضل والتكامل المتقدمة بطريقة تفاعلية ومبسطة. 
-                        ستتعلم هنا كيفية حل أعقد المسائل الرياضية بطرق عملية وتطبيقية تساعدك في دراستك الجامعية وتؤهلك لامتياز في الامتحانات.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <button onclick="handleEnrollClick()" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-8 py-4 rounded-xl font-bold shadow-lg transition-all font-arabic text-lg flex items-center justify-center gap-2">
-                            <i data-lucide="play-circle" class="w-5 h-5"></i>
-                            ابدأ الكورس الآن
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-card border border-slate-800 p-6 md:p-8 rounded-3xl shadow-2xl animate-on-scroll">
+                    <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-800">
+                        <h2 id="course-detail-title" class="text-3xl font-bold text-white font-heading" dir="ltr">Course Name</h2>
+                        <button onclick="switchPage('all-courses-page')" class="text-slate-400 hover:text-white flex items-center gap-2 text-sm font-arabic transition-colors">
+                            العودة للكورسات <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </button>
-                        <button onclick="switchPage('all-courses-page')" class="bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 rounded-xl font-bold transition-all border border-slate-700 font-arabic text-lg">
-                            تصفح كورسات أخرى
-                        </button>
+                    </div>
+
+                    <div id="course-parts-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <!-- Parts will be injected here -->
+                    </div>
+
+                    <div id="video-player-wrapper" class="hidden aspect-video bg-slate-900 rounded-2xl overflow-hidden border border-slate-700 shadow-lg mt-8">
+                        <iframe id="video-iframe" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Demo Video Page -->
         <div id="video-page" class="page-section hidden opacity-0 translate-y-10 transition-all duration-500 ease-out relative z-10 min-h-[80vh] px-4 py-12" dir="rtl">
             <div class="max-w-4xl mx-auto text-center animate-on-scroll">
                 <h2 class="text-3xl font-bold text-white mb-6 font-arabic">مقدمة تعريفية عن المنصة</h2>
-                <p class="text-slate-400 mb-8 font-arabic">شاهد هذا الفيديو لتتعرف على مميزات Brainex Academy وكيف نساعدك على التفوق.</p>
+                <p class="text-slate-400 mb-8 font-arabic">شاهد هذا الفيديو لتتعرف على مميزات Brainex وكيف نساعدك على التفوق.</p>
                 <div class="aspect-video bg-[#0c1222] rounded-3xl border border-slate-700 overflow-hidden flex items-center justify-center shadow-2xl relative group cursor-pointer">
                     <div class="absolute inset-0 bg-blue-500/5 group-hover:bg-blue-500/10 transition-colors"></div>
                     <i data-lucide="play-circle" class="w-20 h-20 text-slate-500 opacity-50 group-hover:opacity-100 group-hover:text-blue-500 transition-all transform group-hover:scale-110"></i>
@@ -466,10 +487,11 @@
             </div>
         </div>
 
+        <!-- Signup Page -->
         <div id="signup-page" class="page-section hidden opacity-0 translate-y-10 transition-all duration-500 ease-out relative z-20 min-h-[80vh] flex items-center justify-center px-4 py-12">
             <div class="bg-card border border-slate-800 p-8 rounded-2xl w-full max-w-md shadow-2xl">
                 <h2 class="text-2xl font-bold text-white text-center mb-1 font-heading">Create Account</h2>
-                <p class="text-slate-400 text-center mb-8 text-sm">Join Brainex Academy today.</p>
+                <p class="text-slate-400 text-center mb-8 text-sm">Join Brainex today.</p>
                 
                 <form class="space-y-4" onsubmit="event.preventDefault();">
                     <div class="flex flex-col sm:flex-row gap-4">
@@ -490,10 +512,11 @@
             </div>
         </div>
 
+        <!-- Login Page -->
         <div id="login-page" class="page-section hidden opacity-0 translate-y-10 transition-all duration-500 ease-out relative z-20 min-h-[80vh] flex items-center justify-center px-4 py-12">
             <div class="bg-card border border-slate-800 p-8 rounded-2xl w-full max-w-md shadow-2xl">
                 <h2 class="text-2xl font-bold text-white text-center mb-1 font-heading">Welcome Back</h2>
-                <p class="text-slate-400 text-center mb-8 text-sm">Log in to your Brainex Academy account.</p>
+                <p class="text-slate-400 text-center mb-8 text-sm">Log in to your Brainex account.</p>
                 
                 <form class="space-y-4" onsubmit="event.preventDefault();">
                     <input type="text" placeholder="Email Address or Phone Number" class="w-full bg-inputbg border border-inputborder rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors">
@@ -511,6 +534,7 @@
             </div>
         </div>
 
+        <!-- Dashboard Page -->
         <div id="dashboard-page" class="page-section hidden opacity-0 translate-y-10 transition-all duration-500 ease-out relative z-20 min-h-[80vh] px-4 py-12" dir="rtl">
             <div class="max-w-4xl mx-auto">
                 <div class="bg-card border border-slate-800 p-8 rounded-3xl shadow-2xl animate-on-scroll">
@@ -524,7 +548,6 @@
                             تسجيل الخروج
                         </button>
                     </div>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-2xl flex flex-col items-center justify-center text-center">
                             <i data-lucide="book-open" class="w-12 h-12 text-slate-600 mb-4 opacity-50"></i>
@@ -536,12 +559,14 @@
             </div>
         </div>
 
-        <a href="#" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-400 text-white p-4 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.4)] hover:shadow-[0_0_25px_rgba(34,197,94,0.6)] transition-all transform hover:scale-110 flex items-center justify-center group">
+        <!-- WhatsApp Floating Button -->
+        <a href="https://chat.whatsapp.com/ET0IS4n8NDJCDqQP2D07rb" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-400 text-white p-4 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.4)] hover:shadow-[0_0_25px_rgba(34,197,94,0.6)] transition-all transform hover:scale-110 flex items-center justify-center group">
             <svg viewBox="0 0 24 24" class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
             </svg>
         </a>
 
+        <!-- Custom Notification -->
         <div id="custom-notification" class="fixed inset-0 z-[200] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300" dir="rtl">
             <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
             <div class="bg-card border border-slate-700 p-8 rounded-3xl shadow-2xl relative z-10 max-w-sm w-full mx-4 transform scale-95 transition-transform duration-300" id="notification-box">
@@ -562,20 +587,15 @@
         const introPage = document.getElementById('intro-page');
         const mainAppContainer = document.getElementById('main-app-container');
 
-        // مصفوفة بكل الصفحات لتسهيل الأنيميشن
         const allPages = [
             'main-content', 'signup-page', 'login-page', 
             'dashboard-page', 'all-courses-page', 'course-details-page', 'video-page'
         ];
 
-        // ==========================================
-        // نظام إدارة الصفحات بالأنيميشن (Fade Out / Fade In Up)
-        // ==========================================
         function switchPage(targetId) {
             closeMobileMenu();
             let activePage = null;
 
-            // تحديد الصفحة المفتوحة حالياً
             allPages.forEach(id => {
                 const el = document.getElementById(id);
                 if (el && !el.classList.contains('hidden')) {
@@ -583,14 +603,12 @@
                 }
             });
 
-            if (activePage && activePage.id === targetId) return; // لو إحنا في نفس الصفحة متعملش حاجة
+            if (activePage && activePage.id === targetId) return; 
 
             if (activePage) {
-                // إخفاء الصفحة الحالية (Fade out)
                 activePage.classList.remove('opacity-100', 'translate-y-0');
                 activePage.classList.add('opacity-0', 'translate-y-10');
                 
-                // استنى الأنيميشن يخلص وبعدين اخفيها بجد واظهر الجديدة
                 setTimeout(() => {
                     activePage.classList.add('hidden');
                     showPage(targetId);
@@ -607,19 +625,16 @@
             target.classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            // تأخير بسيط جداً للسماح للبراوزر برسم العنصر قبل بدء الأنيميشن
             requestAnimationFrame(() => {
                 setTimeout(() => {
                     target.classList.remove('opacity-0', 'translate-y-10');
                     target.classList.add('opacity-100', 'translate-y-0');
-                    initScrollObserver(); // تحديث أنيميشن السكرول للصفحة الجديدة
+                    initScrollObserver();
+                    lucide.createIcons();
                 }, 50);
             });
         }
 
-        // ==========================================
-        // نظام الإشعارات المنبثقة
-        // ==========================================
         function showNotification(title, message, type = 'error') {
             const notifOverlay = document.getElementById('custom-notification');
             const notifBox = document.getElementById('notification-box');
@@ -651,7 +666,102 @@
         }
 
         // ==========================================
-        // ربط قاعدة بيانات Supabase
+        // Course Logic & Data
+        // ==========================================
+        const coursesData = {
+            1: {
+                title: "Final Revision Calculus 131",
+                parts: [
+                    { name: "Final Revision Part 1", url: "" },
+                    { name: "Final Revision Part 2", url: "" },
+                    { name: "Final Revision Part 3", url: "" },
+                    { name: "Final Revision Part 4", url: "" }
+                ]
+            },
+            2: {
+                title: "Final Revision Integration 132",
+                parts: [
+                    { name: "Final Revision Part 1", url: "https://www.youtube.com/embed/fyhXcLD6DAs" },
+                    { name: "Final Revision Part 2", url: "" },
+                    { name: "Final Revision Part 3", url: "" }
+                ]
+            },
+            3: {
+                title: "Integration 132 (Detailed)",
+                parts: [
+                    { name: "Simple integrations & Summations", url: "https://www.youtube.com/embed/7buByiMaxOs" },
+                    { name: "Riemann Summations", url: "https://www.youtube.com/embed/8_6oO-4jSic" },
+                    { name: "Definite Integrals", url: "https://www.youtube.com/embed/R2HvAK4TXZU" },
+                    { name: "Fundametal Theorem of Calculus (F.T.C)", url: "https://www.youtube.com/embed/GNHbWX15Azw" },
+                    { name: "Integration by Substitution", url: "https://www.youtube.com/embed/idsJyARs1Wo" },
+                    { name: "Integration by Parts & Reduction formula", url: "https://www.youtube.com/embed/CxQ8CWPFExk" },
+                    { name: "Trigonometric Integrals", url: "https://www.youtube.com/embed/I1pM6HIiHk0" },
+                    { name: "Trigonometric substitution & Arc length", url: "https://www.youtube.com/embed/j-cZQZz_Zu0" },
+                    { name: "Integration by partial fraction", url: "https://www.youtube.com/embed/lyzzGhhnNoY" },
+                    { name: "Area between curves & Improper Integrals", url: "https://www.youtube.com/embed/XG54qZoFA10" },
+                    { name: "Analytical Geometry", url: "https://www.youtube.com/embed/Da9TBkjio7w" },
+                    { name: "Conic Sections", url: "https://www.youtube.com/embed/oLVOQ-z6BHo" }
+                ]
+            }
+        };
+
+        function viewCourse(courseId) {
+            if (!currentUser) {
+                showNotification('تنبيه', 'يجب تسجيل الدخول أولاً للبدء في هذا الكورس.', 'error');
+                switchPage('login-page');
+                return;
+            }
+
+            const course = coursesData[courseId];
+            const titleEl = document.getElementById('course-detail-title');
+            const containerEl = document.getElementById('course-parts-container');
+            const videoWrapper = document.getElementById('video-player-wrapper');
+            const iframeEl = document.getElementById('video-iframe');
+
+            titleEl.innerText = course.title;
+            containerEl.innerHTML = '';
+            videoWrapper.classList.add('hidden');
+            iframeEl.src = '';
+
+            course.parts.forEach((part, index) => {
+                const card = document.createElement('div');
+                card.className = "part-card bg-slate-900/50 border border-slate-800 p-5 rounded-2xl cursor-pointer flex items-center gap-4";
+                card.innerHTML = `
+                    <div class="w-10 h-10 rounded-full bg-indigo-600/20 flex items-center justify-center text-indigo-400 flex-shrink-0 font-bold font-heading">
+                        ${index + 1}
+                    </div>
+                    <h4 class="text-white font-semibold font-arabic flex-1">${part.name}</h4>
+                    <i data-lucide="play-circle" class="w-6 h-6 text-slate-500 flex-shrink-0"></i>
+                `;
+                
+                card.addEventListener('click', () => {
+                    playVideo(part.url, part.name);
+                });
+
+                containerEl.appendChild(card);
+            });
+
+            switchPage('course-details-page');
+            lucide.createIcons();
+        }
+
+        function playVideo(url, name) {
+            const videoWrapper = document.getElementById('video-player-wrapper');
+            const iframeEl = document.getElementById('video-iframe');
+            
+            if(!url) {
+                showNotification('قريباً', `الفيديو الخاص بـ ${name} لم يتم رفعه بعد، تابعنا لاحقاً!`, 'error');
+                return;
+            }
+
+            iframeEl.src = url;
+            videoWrapper.classList.remove('hidden');
+            videoWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+
+        // ==========================================
+        // Supabase Auth Logic
         // ==========================================
         const supabaseUrl = 'https://ycmxezwafymqhvnayngi.supabase.co';
         const supabaseKey = 'sb_publishable_MAvdyo9Wo91xe9b8weCugQ_4tnOGzl4';
@@ -698,17 +808,7 @@
             }
         }
 
-        function handleEnrollClick() {
-            if (currentUser) {
-                showNotification('تم بنجاح', 'تم تسجيلك في الكورس بنجاح، يمكنك الآن متابعته.', 'success');
-                switchPage('dashboard-page');
-            } else {
-                showNotification('تنبيه', 'يجب تسجيل الدخول أولاً للبدء في هذا الكورس.', 'error');
-                switchPage('login-page');
-            }
-        }
-
-        // --- 1. Sign Up ---
+        // --- Sign Up ---
         const signupForm = document.querySelector('#signup-page form');
         if (signupForm) {
             signupForm.addEventListener('submit', async (e) => {
@@ -763,7 +863,7 @@
             });
         }
 
-        // --- 2. Log In ---
+        // --- Log In ---
         const loginForm = document.querySelector('#login-page form');
         if (loginForm) {
             loginForm.addEventListener('submit', async (e) => {
@@ -818,7 +918,6 @@
             });
         }
 
-        // --- دخول الموقع أول مرة ---
         function enterSite() {
             introPage.style.opacity = '0';
             introPage.style.pointerEvents = 'none'; 
@@ -829,12 +928,11 @@
                 
                 setTimeout(() => {
                     mainAppContainer.classList.remove('opacity-0');
-                    switchPage('main-content'); // يبدأ بالرئيسية بالأنيميشن
+                    switchPage('main-content');
                 }, 50);
             }, 800); 
         }
 
-        // --- قائمة الموبايل الجانبية ---
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const closeMenuBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -854,7 +952,6 @@
         closeMenuBtn.addEventListener('click', closeMobileMenu);
         mobileOverlay.addEventListener('click', closeMobileMenu);
 
-        // --- مراقب التمرير ---
         let observer;
         function initScrollObserver() {
             if(observer) observer.disconnect();
