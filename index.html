@@ -173,13 +173,22 @@
                 <span class="font-heading font-bold text-xl tracking-tight">Brainex Academy</span>
             </div>
 
-            <div class="hidden md:flex items-center gap-8">
+            <div class="hidden md:flex items-center gap-8" id="nav-auth-group">
                 <a href="#courses" onclick="showHome()" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Courses</a>
                 <a href="#about" onclick="showHome()" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">About</a>
-                <a href="#" onclick="showLogin()" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Login</a>
-                <button onclick="showSignUp()" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-[0_0_15px_rgba(79,70,229,0.5)] transition-all transform hover:scale-105">
-                    Join Now
-                </button>
+                
+                <div id="guest-buttons" class="flex items-center gap-4">
+                    <a href="#" onclick="showLogin()" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Login</a>
+                    <button onclick="showSignUp()" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-[0_0_15px_rgba(79,70,229,0.5)] transition-all transform hover:scale-105">
+                        Join Now
+                    </button>
+                </div>
+
+                <div id="user-profile" class="hidden items-center gap-3 cursor-pointer group" onclick="showDashboard()">
+                    <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold border-2 border-indigo-400 group-hover:bg-indigo-500 transition-all shadow-[0_0_15px_rgba(79,70,229,0.5)]" id="user-initial">
+                        Y
+                    </div>
+                </div>
             </div>
 
             <div class="md:hidden z-50 relative">
@@ -251,6 +260,29 @@
             </div>
         </div>
 
+        <div id="dashboard-page" class="hidden relative z-20 min-h-[80vh] px-4 py-12 animate-on-scroll" dir="rtl">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-card border border-slate-800 p-8 rounded-3xl shadow-2xl">
+                    <div class="flex items-center justify-between mb-8 pb-6 border-b border-slate-800">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white font-arabic">أهلاً بك يا <span id="dash-user-name" class="text-blue-400">طالبنا</span></h2>
+                            <p class="text-slate-400 mt-2 font-arabic text-sm">هنا يمكنك متابعة دروسك وكورساتك المشترك بها.</p>
+                        </div>
+                        <button onclick="handleLogout()" class="flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 px-4 py-2 rounded-xl text-sm font-bold transition-all border border-red-500/20">
+                            <i data-lucide="log-out" class="w-4 h-4"></i>
+                            تسجيل الخروج
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl flex items-center justify-center text-slate-500 italic font-arabic">
+                            لا توجد كورسات مشتركة حالياً.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <main id="main-content" class="relative z-10">
             <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32 text-center animate-on-scroll">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-950/50 border border-indigo-500/20 mb-8 backdrop-blur-sm">
@@ -267,7 +299,7 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button onclick="showSignUp()" class="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-400 hover:to-blue-500 text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all transform hover:-translate-y-0.5">
+                    <button onclick="handleEnroll()" class="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-400 hover:to-blue-500 text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all transform hover:-translate-y-0.5">
                         <i data-lucide="rocket" class="w-5 h-5"></i>
                         Start Learning Now
                     </button>
@@ -355,7 +387,7 @@
                                 <div class="font-heading font-bold text-2xl text-white flex items-baseline gap-1">
                                     600 <span class="text-sm font-medium text-slate-400">EGP</span>
                                 </div>
-                                <button onclick="showSignUp()" class="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-5 py-2.5 rounded-full flex items-center gap-1 transition-colors">
+                                <button onclick="handleEnroll()" class="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-5 py-2.5 rounded-full flex items-center gap-1 transition-colors">
                                     Enroll Now <i data-lucide="chevron-right" class="w-4 h-4"></i>
                                 </button>
                             </div>
@@ -395,7 +427,7 @@
                                 <div class="font-heading font-bold text-2xl text-white flex items-baseline gap-1">
                                     600 <span class="text-sm font-medium text-slate-400">EGP</span>
                                 </div>
-                                <button onclick="showSignUp()" class="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-5 py-2.5 rounded-full flex items-center gap-1 transition-colors">
+                                <button onclick="handleEnroll()" class="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-5 py-2.5 rounded-full flex items-center gap-1 transition-colors">
                                     Enroll Now <i data-lucide="chevron-right" class="w-4 h-4"></i>
                                 </button>
                             </div>
@@ -432,7 +464,7 @@
                                 <div class="font-heading font-bold text-2xl text-white flex items-baseline gap-1">
                                     600 <span class="text-sm font-medium text-slate-400">EGP</span>
                                 </div>
-                                <button onclick="showSignUp()" class="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-5 py-2.5 rounded-full flex items-center gap-1 transition-colors">
+                                <button onclick="handleEnroll()" class="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-5 py-2.5 rounded-full flex items-center gap-1 transition-colors">
                                     Enroll Now <i data-lucide="chevron-right" class="w-4 h-4"></i>
                                 </button>
                             </div>
@@ -527,7 +559,9 @@
             </div>
         </div>
 
-    </div> <script>
+    </div> 
+    
+    <script>
         // تهيئة أيقونات Lucide
         lucide.createIcons();
 
@@ -537,6 +571,7 @@
         const mainContent = document.getElementById('main-content');
         const signupPage = document.getElementById('signup-page');
         const loginPage = document.getElementById('login-page');
+        const dashboardPage = document.getElementById('dashboard-page');
 
         // ==========================================
         // نظام الإشعارات المنبثقة (Custom Popup)
@@ -551,13 +586,12 @@
             notifTitle.innerText = title;
             notifMessage.innerText = message;
 
-            // تغيير الأيقونة حسب نوع الإشعار (نجاح أو خطأ)
             if (type === 'success') {
                 notifIcon.innerHTML = `<i data-lucide="check-circle-2" class="w-16 h-16 text-green-500 drop-shadow-[0_0_15px_rgba(34,197,94,0.5)]"></i>`;
             } else {
                 notifIcon.innerHTML = `<i data-lucide="x-circle" class="w-16 h-16 text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]"></i>`;
             }
-            lucide.createIcons(); // تحديث الأيقونات
+            lucide.createIcons(); 
 
             notifOverlay.classList.remove('opacity-0', 'pointer-events-none');
             notifBox.classList.remove('scale-95');
@@ -577,11 +611,77 @@
         // ==========================================
         const supabaseUrl = 'https://ycmxezwafymqhvnayngi.supabase.co';
         const supabaseKey = 'sb_publishable_MAvdyo9Wo91xe9b8weCugQ_4tnOGzl4';
-        
-        // تم تغيير اسم المتغير هنا لمنع التعارض
         const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-// --- 1. برمجة فورم إنشاء الحساب (Sign Up) ---
+        // متغير لحفظ بيانات المستخدم الحالي
+        let currentUser = null;
+
+        // دالة لمراقبة حالة تسجيل الدخول في سوبا بيز فوراً
+        supabaseClient.auth.onAuthStateChange((event, session) => {
+            if (session) {
+                currentUser = session.user;
+                updateUI(true);
+            } else {
+                currentUser = null;
+                updateUI(false);
+            }
+        });
+
+        // تحديث واجهة المستخدم (إظهار وإخفاء الأزرار)
+        function updateUI(isLoggedIn) {
+            const guestButtons = document.getElementById('guest-buttons');
+            const userProfile = document.getElementById('user-profile');
+            const userInitial = document.getElementById('user-initial');
+            const dashName = document.getElementById('dash-user-name');
+
+            if (isLoggedIn && currentUser) {
+                guestButtons.classList.add('hidden');
+                userProfile.classList.remove('hidden');
+                userProfile.classList.add('flex');
+                
+                // سحب أول حرف من الاسم (لو موجود) أو الإيميل
+                const name = currentUser.user_metadata.first_name || currentUser.email;
+                userInitial.innerText = name.charAt(0).toUpperCase();
+                dashName.innerText = name;
+            } else {
+                guestButtons.classList.remove('hidden');
+                userProfile.classList.add('hidden');
+            }
+        }
+
+        // دالة إظهار الداش بورد
+        function showDashboard() {
+            if(!currentUser) return showLogin();
+            mainContent.classList.add('hidden');
+            signupPage.classList.add('hidden');
+            loginPage.classList.add('hidden');
+            dashboardPage.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // دالة تسجيل الخروج
+        async function handleLogout() {
+            const { error } = await supabaseClient.auth.signOut();
+            if (error) {
+                showNotification('خطأ', 'فشل تسجيل الخروج', 'error');
+            } else {
+                showNotification('وداعاً', 'تم تسجيل الخروج بنجاح', 'success');
+                dashboardPage.classList.add('hidden');
+                showHome();
+            }
+        }
+
+        // تعديل وظيفة أزرار Enroll Now
+        function handleEnroll() {
+            if (currentUser) {
+                showDashboard();
+                showNotification('مرحباً بك', 'أنت مسجل بالفعل، يمكنك البدء في التعلم ومتابعة كورساتك.', 'success');
+            } else {
+                showSignUp();
+            }
+        }
+
+        // --- 1. برمجة فورم إنشاء الحساب (Sign Up) ---
         const signupForm = document.querySelector('#signup-page form');
         if (signupForm) {
             signupForm.addEventListener('submit', async (e) => {
@@ -608,7 +708,6 @@
                 const originalText = btn.innerText;
                 btn.innerText = 'جاري التسجيل...';
 
-                // 1. إنشاء الحساب في Supabase
                 const { data, error } = await supabaseClient.auth.signUp({
                     email: email,
                     password: password,
@@ -625,7 +724,6 @@
                     btn.innerText = originalText; 
                     showNotification('عذراً، فشل التسجيل', error.message, 'error');
                 } else {
-                    // 2. حفظ رقم التليفون والإيميل في جدول user_phones للرجوع ليهم وقت الدخول
                     const { error: dbError } = await supabaseClient
                         .from('user_phones')
                         .insert([{ phone: phone, email: email }]);
@@ -644,7 +742,7 @@
             loginForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const inputs = loginForm.querySelectorAll('input');
-                const identifier = inputs[0].value.trim(); // الإيميل أو التليفون
+                const identifier = inputs[0].value.trim(); 
                 const password = inputs[1].value;
 
                 if (!identifier || !password) {
@@ -656,27 +754,23 @@
                 const originalText = btn.innerText;
                 btn.innerText = 'جاري الدخول...';
 
-                let loginEmail = identifier; // الافتراضي إن المدخل هو إيميل
+                let loginEmail = identifier; 
 
-                // لو المدخل مفيش فيه علامة @ (يعني الطالب كتب رقم التليفون)
                 if (!identifier.includes('@')) {
-                    // البحث في قاعدة البيانات عن الإيميل المرتبط برقم التليفون ده
                     const { data: phoneData, error: phoneError } = await supabaseClient
                         .from('user_phones')
                         .select('email')
                         .eq('phone', identifier)
                         .single();
 
-if (phoneError || !phoneData) {
+                    if (phoneError || !phoneData) {
                         btn.innerText = originalText;
                         showNotification('حساب غير موجود', phoneError ? phoneError.message : 'الرقم مش موجود في الجدول', 'error');
                         return;
                     }
-                    // سحب الإيميل من الداتا بيز علشان نسجل دخول بيه مخفياً
                     loginEmail = phoneData.email; 
                 }
 
-                // تسجيل الدخول بالإيميل والباسوورد (سواء كتب إيميل أو جبناه عن طريق رقمه)
                 const { data, error } = await supabaseClient.auth.signInWithPassword({
                     email: loginEmail,
                     password: password
@@ -684,8 +778,7 @@ if (phoneError || !phoneData) {
 
                 btn.innerText = originalText;
 
-if (error) {
-                    // هنا خلينا الموقع يعرض رسالة الإيرور الأصلية اللي جاية من سوبا بيز
+                if (error) {
                     showNotification('فشل تسجيل الدخول', error.message, 'error');
                 } else {
                     showNotification('أهلاً بعودتك', 'تم تسجيل الدخول بنجاح!', 'success');
@@ -700,54 +793,49 @@ if (error) {
 
         // دالة الدخول للموقع الأساسي من شاشة البداية
         function enterSite() {
-            // إخفاء صفحة البداية بتأثير Fade out
             introPage.style.opacity = '0';
-            introPage.style.pointerEvents = 'none'; // منع النقرات
+            introPage.style.pointerEvents = 'none'; 
             
             setTimeout(() => {
                 introPage.classList.add('hidden');
-                // إظهار المحتوى الأساسي بتأثير Fade in
                 mainAppContainer.classList.remove('hidden');
                 
-                // إضافة تأخير بسيط جداً للسماح للـ CSS بإدراك الإظهار قبل التلاشي
                 setTimeout(() => {
                     mainAppContainer.classList.remove('opacity-0');
-                    // إعادة تهيئة المراقب (Observer) للعناصر في الموقع الأساسي
                     initScrollObserver();
                 }, 50);
-            }, 800); // يتوافق مع مدة الانتقال في CSS
+            }, 800); 
         }
 
-        // دالة عرض صفحة إنشاء حساب
         function showSignUp() {
             mainContent.classList.add('hidden');
             loginPage.classList.add('hidden');
+            dashboardPage.classList.add('hidden');
             loginPage.classList.remove('is-visible');
             signupPage.classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             setTimeout(() => signupPage.classList.add('is-visible'), 50);
         }
 
-        // دالة عرض صفحة تسجيل الدخول
         function showLogin() {
             mainContent.classList.add('hidden');
             signupPage.classList.add('hidden');
+            dashboardPage.classList.add('hidden');
             signupPage.classList.remove('is-visible');
             loginPage.classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             setTimeout(() => loginPage.classList.add('is-visible'), 50);
         }
 
-        // دالة الرجوع للصفحة الرئيسية
         function showHome() {
             signupPage.classList.add('hidden');
             signupPage.classList.remove('is-visible');
             loginPage.classList.add('hidden');
             loginPage.classList.remove('is-visible');
+            dashboardPage.classList.add('hidden');
             mainContent.classList.remove('hidden');
         }
 
-        // منطق قائمة الهاتف الجانبية
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const closeMenuBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -767,7 +855,6 @@ if (error) {
         closeMenuBtn.addEventListener('click', closeMobileMenu);
         mobileOverlay.addEventListener('click', closeMobileMenu);
 
-        // مراقب التمرير للأنيميشنز
         let observer;
         function initScrollObserver() {
             if(observer) observer.disconnect();
@@ -787,7 +874,6 @@ if (error) {
                 });
             }, observerOptions);
 
-            // مراقبة العناصر داخل الموقع الأساسي فقط
             mainAppContainer.querySelectorAll('.animate-on-scroll').forEach((elem) => {
                 observer.observe(elem);
             });
