@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="ltr" class="scroll-smooth overflow-x-hidden"></html>
+<html lang="ar" dir="ltr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,14 +51,9 @@
 
     <style>
         body {
-            overflow-x: hidden;
-            width: 100%;
-            position: relative;
-        }
-
-        body {
             background-color: #0a0f1d;
             color: #ffffff;
+            overflow-x: hidden;
         }
 
         .bg-glow {
@@ -134,7 +129,7 @@
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #4f46e5; }
     </style>
 </head>
-<body class="antialiased relative selection:bg-blue-500/30 overflow-x-hidden w-full max-w-[100vw]"></body>
+<body class="antialiased relative selection:bg-blue-500/30">
 
     <div id="intro-page" class="fixed inset-0 z-[100] bg-[#0a0f1d] overflow-y-auto custom-scrollbar transition-all duration-1000 ease-in-out">
         
@@ -178,7 +173,7 @@
         </div>
     </div>
 
-    <div id="main-app-container" class="hidden opacity-0 transition-opacity duration-1000 ease-in-out w-full overflow-x-hidden relative"></div>
+    <div id="main-app-container" class="hidden opacity-0 transition-opacity duration-1000 ease-in-out">
         <div class="bg-glow"></div>
 
         <nav class="relative z-50 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
@@ -707,13 +702,11 @@
 
         function openMobileMenu() {
             mobileMenu.classList.remove('translate-x-full');
-            mobileMenu.classList.add('translate-x-0');
             mobileOverlay.classList.remove('opacity-0', 'pointer-events-none');
         }
 
         function closeMobileMenu() {
             mobileMenu.classList.add('translate-x-full');
-            mobileMenu.classList.remove('translate-x-0');
             mobileOverlay.classList.add('opacity-0', 'pointer-events-none');
         }
 
