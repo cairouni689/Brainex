@@ -164,21 +164,25 @@
     </div>
 
     <!-- Intro Page -->
-    <div id="intro-page" class="fixed inset-0 z-[100] bg-[#050b14] flex items-center justify-center transition-all duration-1000 ease-in-out">
+    <div id="intro-page" class="fixed inset-0 z-[100] bg-[#050b14] overflow-y-auto overflow-x-hidden transition-all duration-1000 ease-in-out">
         <!-- Floating Math Symbols -->
-        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="fixed inset-0 pointer-events-none overflow-hidden">
             <div class="absolute top-20 right-10 md:right-20 text-blue-500/20 text-6xl md:text-8xl font-serif animate-float select-none">∫</div>
             <div class="absolute bottom-32 right-10 md:right-1/4 text-indigo-500/20 text-5xl md:text-7xl font-serif animate-float delay-100 select-none">π</div>
             <div class="absolute top-40 left-10 md:left-1/4 text-teal-500/20 text-6xl md:text-8xl font-serif animate-float delay-200 select-none">∞</div>
             <div class="absolute bottom-20 left-10 md:left-20 text-purple-500/20 text-5xl md:text-7xl font-serif animate-float delay-300 select-none">√</div>
+            <div class="absolute top-1/3 left-5 md:left-10 text-cyan-500/20 text-5xl md:text-6xl font-serif animate-float delay-500 select-none">∑</div>
+            <div class="absolute bottom-1/4 left-1/3 text-purple-500/20 text-4xl md:text-5xl font-serif animate-float delay-700 select-none">Δ</div>
+            <div class="absolute top-1/4 right-1/3 text-blue-500/20 text-5xl md:text-7xl font-serif animate-float delay-150 select-none">θ</div>
+            <div class="absolute bottom-10 right-1/3 text-teal-500/20 text-6xl md:text-8xl font-serif animate-float delay-1000 select-none">Ω</div>
+            <div class="absolute top-10 left-1/2 text-indigo-500/20 text-4xl md:text-5xl font-serif animate-float delay-75 select-none">β</div>
         </div>
 
-        <div class="container mx-auto px-6 relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16 w-full max-w-7xl">
-            
-            <!-- Text Section -->
-            <div class="md:w-1/2 text-center md:text-left mt-8 md:mt-0 flex flex-col justify-center">
-                <div class="glass-panel p-8 md:p-12 rounded-[3rem] relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+        <div class="min-h-screen flex items-center justify-center py-16 md:py-0">
+            <div class="container mx-auto px-6 relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16 w-full max-w-7xl">
+                
+                <!-- Text Section -->
+                <div class="md:w-1/2 text-center md:text-left mt-8 md:mt-0 flex flex-col justify-center">
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight relative z-10">
                         Welcome to <br>
                         <span class="text-gradient font-heading text-5xl sm:text-6xl lg:text-7xl mt-2 inline-block drop-shadow-lg">Brainex</span>
@@ -187,21 +191,23 @@
                         Mathematics here is not just complex numbers and rules. <br>
                         <span class="text-cyan-400 font-bold">Your studies and future are safe with us.</span> Discover the joy of academic learning with modern interactive methods.
                     </p>
-                    <button onclick="enterSite()" class="relative z-10 w-full sm:w-auto group inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-gradient-to-r from-indigo-600 to-cyan-600 rounded-full hover:from-indigo-500 hover:to-cyan-500 shadow-[0_0_30px_rgba(79,70,229,0.4)] hover:shadow-[0_0_50px_rgba(79,70,229,0.7)] hover:-translate-y-1">
-                        <span>Start Your Journey</span>
-                        <i data-lucide="arrow-right" class="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform"></i>
-                    </button>
+                    <div>
+                        <button onclick="enterSite()" class="relative z-10 w-full sm:w-auto group inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-gradient-to-r from-indigo-600 to-cyan-600 rounded-full hover:from-indigo-500 hover:to-cyan-500 shadow-[0_0_30px_rgba(79,70,229,0.4)] hover:shadow-[0_0_50px_rgba(79,70,229,0.7)] hover:-translate-y-1">
+                            <span>Start Your Journey</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Image Section -->
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative w-full max-w-[280px] sm:max-w-md lg:max-w-lg group">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-indigo-500 rounded-[2.5rem] blur-2xl opacity-40 animate-pulse group-hover:opacity-60 transition-opacity duration-500"></div>
-                    <img src="https://i.postimg.cc/fTSjDHCf/Chat-GPT-Image-5-mayw-2026-09-25-44-m.png" alt="Math Concept" class="relative z-10 w-full h-auto rounded-[2.5rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform hover:scale-105 transition-all duration-700 object-cover">
+                <!-- Image Section -->
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-[280px] sm:max-w-md lg:max-w-lg group">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-indigo-500 rounded-[2.5rem] blur-2xl opacity-40 animate-pulse group-hover:opacity-60 transition-opacity duration-500"></div>
+                        <img src="https://i.postimg.cc/fTSjDHCf/Chat-GPT-Image-5-mayw-2026-09-25-44-m.png" alt="Math Concept" class="relative z-10 w-full h-auto rounded-[2.5rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform hover:scale-105 transition-all duration-700 object-cover">
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
 
@@ -214,8 +220,8 @@
                 
                 <!-- Logo -->
                 <div class="flex items-center gap-3 cursor-pointer group" onclick="switchPage('main-content')">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 p-[2px] shadow-[0_0_15px_rgba(251,191,36,0.3)] group-hover:shadow-[0_0_25px_rgba(251,191,36,0.5)] transition-shadow">
-                        <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center overflow-hidden">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-400 to-cyan-400 p-[2px] shadow-[0_0_15px_rgba(79,70,229,0.3)] group-hover:shadow-[0_0_25px_rgba(79,70,229,0.6)] transition-all">
+                        <div class="w-full h-full bg-dark-900 rounded-full flex items-center justify-center overflow-hidden">
                             <img src="https://i.postimg.cc/DfWSChGp/photo-6041994485908049326-y.jpg" alt="Brainex" class="w-full h-full object-cover">
                         </div>
                     </div>
